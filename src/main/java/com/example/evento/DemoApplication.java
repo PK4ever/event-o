@@ -13,7 +13,7 @@ public class DemoApplication {
 	@RequestMapping("/")
 	@ResponseBody
 	String home() {
-		return "Hello, Welcome to Event-O!!";
+		return " the begining of event-o ";
 	}
 
 	public static void main(String[] args) {
