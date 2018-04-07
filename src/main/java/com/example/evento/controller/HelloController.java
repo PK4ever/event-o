@@ -1,7 +1,8 @@
 package com.example.evento.controller;
 
-import com.example.evento.model.Event;
-import org.springframework.beans.factory.annotation.Value;
+import com.evdb.javaapi.data.Event;
+import com.evdb.javaapi.data.Image;
+import com.evdb.javaapi.data.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.evdb.javaapi.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 
 @Controller
 public class HelloController {
@@ -28,20 +25,22 @@ public class HelloController {
         return " This is a new controller ";
     }
 
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
+//    @RequestMapping("/")
+//    @ResponseBody
+//    String home() {
+//
+//        return " the begining of event-o ";
+//    }
 
-        return " the begining of event-o ";
-    }
-
-    @GetMapping("/events")
+    @GetMapping("/")
     String events(Model model) throws EVDBRuntimeException, EVDBAPIException {
-        ArrayList<Event> eventList = new ArrayList<>();
-        for (com.evdb.javaapi.data.Event event: eventfulController.getEvents()){
-            eventList.add(new Event(event.getTitle(), event.getSeid(), event.getVenueAddress()));
-        }
-        model.addAttribute("eventList", eventList);
+//        ArrayList<Event> eventList = new ArrayList<>();
+//        for (com.evdb.javaapi.data.Event event: eventfulController.getEvents()){
+//            eventList.add(new Event(event.getTitle(), event.getSeid(), event.getVenueAddress()));
+//        }
+//        model.addAttribute("eventList", eventList);
+        
+        model.addAttribute("eventList", eventfulController.getEvents());
         return "events";
     }
 
