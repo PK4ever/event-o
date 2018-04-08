@@ -13,10 +13,8 @@
     <p th:text="${event.getStartTime()}"></p>
     <ol th:each="image : ${event.getImages()}">
         <li th:text="${image.getUrl()}"></li>
+        <li th:text="${event.getDefaultImage()}"></li>
     </ol>
-
-
-
 </ul>
 </body>
 </html>
