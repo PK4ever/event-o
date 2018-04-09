@@ -12,8 +12,8 @@
     <p th:text="${event.getVenueAddress()}"></p>
     <p th:text="${event.getStartTime()}"></p>
     <ol th:each="image : ${event.getImages()}">
-        <li th:text="${image.getUrl()}"></li>
-        <li th:text="${event.getDefaultImage()}"></li>
+        <img th:src="${image.getUrl()}">
+        <img th:src="${event.getDefaultImage()}">
     </ol>
 </ul>
 </body>
