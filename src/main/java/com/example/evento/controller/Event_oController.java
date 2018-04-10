@@ -50,12 +50,14 @@ public class Event_oController {
         try {
 
             int count = 1;
+
             for (Event event: eventfulController.getEvents()){
                 document = Jsoup.connect(event.getURL()).get();
                 Elements doc = document.getElementsByClass("image-viewer");
                 Elements images = doc.tagName("img");
                 eventObject = new Event_Object(event.getTitle(),event.getVenueAddress(), event.getStartTime().toString(), event.getImages());
                 eventList.add(eventObject);
+//                System.out.println(event.getPrice());
                 for (Element e: images){
 //                System.out.println(e.getElementsByTag("img"));
                     for (Element img: e.getElementsByTag("img")){

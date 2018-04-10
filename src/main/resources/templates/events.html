@@ -6,11 +6,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>here</h1>
+<!--SEARCH BAR FOR LOCATION-->
+
+
+
+<!------------------------------->
+<!--SEARCH BAR FOR KEYWORDS-->
+
+
+
+<!------------------------------->
 <ul th:each="event : ${eventList}"><br>
     <li th:text="${event.getTitle()}"></li>
     <p th:text="${event.getVenueAddress()}"></p>
     <p th:text="${event.getStartTime()}"></p>
+    <!--<p th:text="${event.getPrice()}"></p>-->
     <ol th:each="image : ${event.getImages()}">
         <img th:src="${image.getUrl()}">
         <img th:src="${event.getDefaultImage()}">
