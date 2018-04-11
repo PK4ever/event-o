@@ -53,7 +53,7 @@
 			<artifactId>eventfulapi</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/eventfulapi.jar</systemPath>
+			<systemPath>${pom.basedir}/lib/eventfulapi.jar</systemPath>
 		</dependency>
 
 	</dependencies>
