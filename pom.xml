@@ -41,13 +41,20 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<!-- https://mvnrepository.com/artifact/org.jso   up/jsoup -->
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.8.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.evdb.javaapi</groupId>
+			<artifactId>eventfulapi</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/eventfulapi.jar</systemPath>
+		</dependency>
 
 	</dependencies>
 
