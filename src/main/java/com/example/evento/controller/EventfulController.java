@@ -28,10 +28,21 @@ public class EventfulController {
         apiConfiguration.setEvdbPassword(PASSWORD);
     }
 
-    public ArrayList<Event> getEvents() throws EVDBRuntimeException, EVDBAPIException {
-        eventSearchRequest.setPageSize(50);
-//        eventSearchRequest.setKeywords("all");
-        eventSearchRequest.setLocation("Syracuse, NY");
-        return (ArrayList<Event>) eventOperations.search(eventSearchRequest).getEvents();
+    public ArrayList<Event> getEvents(String location, String keyWord) {
+        eventSearchRequest.setPageSize(8);
+        eventSearchRequest.setKeywords(keyWord);
+        eventSearchRequest.setLocation(location);
+        eventSearchRequest.setLocationRadius(30);
+        try {
+            return (ArrayList<Event>) eventOperations.search(eventSearchRequest).getEvents();
+        } catch (EVDBRuntimeException e) {
+            e.printStackTrace();
+            //TODO handle the error appropriately
+        } catch (EVDBAPIException e) {
+            e.printStackTrace();
+            //TODO handle the error appropriately
+        }
+        //TODO refractor this
+        return new ArrayList<>();
     }
 }

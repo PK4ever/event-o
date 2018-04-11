@@ -54,14 +54,6 @@
 			<version>1.8.3</version>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>com.evdb.javaapi</groupId>-->
-			<!--<artifactId>eventfulapi</artifactId>-->
-			<!--<version>1.0</version>-->
-			<!--<scope>system</scope>-->
-			<!--<systemPath>${pom.basedir}/lib/eventfulapi.jar</systemPath>-->
-		<!--</dependency>-->
-
 			<dependency>
 				<groupId>com.evdb.javaapi</groupId>
 				<artifactId>eventfulapi</artifactId>
