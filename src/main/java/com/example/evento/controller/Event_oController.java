@@ -1,8 +1,9 @@
 package com.example.evento.controller;
 
+
+import com.evdb.javaapi.EVDBAPIException;
+import com.evdb.javaapi.EVDBRuntimeException;
 import com.evdb.javaapi.data.Event;
-import com.evdb.javaapi.data.Image;
-import com.evdb.javaapi.data.User;
 import com.example.evento.model.Event_Object;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.evdb.javaapi.*;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
