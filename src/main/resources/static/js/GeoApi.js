@@ -26,16 +26,22 @@ function show_alert() {
         app_key: "qX2dNH9TZGLvBT8B",
         q: "music",
         where: "syracuse",
-        page_size: 20,
+        page_size: 10,
         sort_order: "popularity",
     }
     EVDB.API.call("/events/search", oArgs, function(oData) {
-        alert(oData.events.event.length);
-        for(var x = 0; oData.events.event.length; x++){
+        // alert(oData.events.event.length);
+        for(var x = 0; x < oData.events.event.length; x++){
 
+            if(oData.events.event[x].image) {
                 $("#title").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
                     "<img src='" + oData.events.event[x].image.medium.url + "'></li>");
+            }else{
+                $("#title").append("<li><p>" + oData.events.event[x].title + "</p>" +
+                    "<p>" + oData.events.event[x].venue_address + "</p>" +
+                    "</li>");
+            }
 
         }
 
