@@ -38,6 +38,12 @@ public class Event_oController {
         return "publicHomePage";
     }
 
+    @GetMapping("/js")
+    public String home(){
+
+        return "js";
+    }
+
     public List<Event_Object> getEventList(String location, String keyWord){
         List<Event_Object> eventList = new ArrayList<>();
         Document document = null;
