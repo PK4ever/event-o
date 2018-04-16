@@ -3,11 +3,9 @@ $(document).ready(function() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success,fail);
     }
-    // $("#searchSubmit").click(getEvents(location,""));
+
     $("#searchSubmit").click(function() {
-
         getEvents($("#location").val(),$("#keyword").val());
-
     });
 });
 
@@ -40,30 +38,29 @@ function success(position) {
         });
 }
 function fail() {
-    getEvents("Brooklyn NY", "");
+    getEvents("Brooklyn, NY", "");
 }
 
 function getEvents(location, keyword) {
 
     var oArgs = {
         app_key: "qX2dNH9TZGLvBT8B",
-         q: keyword,
+        q: keyword,
         where: location,
         // where: "syracuse",
         page_size: 10,
         sort_order: "popularity",
     }
-    EVDB.API.call("/events/search",
-        oArgs,
-        function(oData) {
+    EVDB.API.call("/events/search", oArgs, function(oData) {
         // alert(oData.events.event.length);
+        $("#title").empty();
         for(var x = 0; x < oData.events.event.length; x++){
             if(oData.events.event[x].image) {
-                $("#title").innerHTML("<li><p>" + oData.events.event[x].title + "</p>" +
+                $("#title").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
                     "<img src='" + oData.events.event[x].image.medium.url + "'></li>");
             }else{
-                $("#title").innerHTML("<li><p>" + oData.events.event[x].title + "</p>" +
+                $("#title").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
                     "</li>");
 
@@ -80,3 +77,9 @@ function getEvents(location, keyword) {
     });
 }
 
+function initialize() {
+    var input = document.getElementById('location');
+    new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
