@@ -27,7 +27,7 @@ public class Event_oController {
         eventfulController.connectToEventFul();
     }
 
-    @GetMapping("/")
+    @GetMapping("/java")
     public String home(@RequestParam(name="location", required=false, defaultValue="") String location, @RequestParam(name="keyword", required=false, defaultValue="") String keyWord, Model model){
         List<Event_Object> eventList = getEventList(location, keyWord);
 
@@ -38,7 +38,7 @@ public class Event_oController {
         return "publicHomePage";
     }
 
-    @GetMapping("/js")
+    @GetMapping("/")
     public String home(){
 
         return "js";

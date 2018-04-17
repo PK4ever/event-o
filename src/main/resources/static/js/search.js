@@ -42,6 +42,7 @@ function fail() {
 }
 
 function getEvents(location, keyword) {
+    $("#location").attr("placeholder", location);
 
     var oArgs = {
         app_key: "qX2dNH9TZGLvBT8B",
@@ -66,14 +67,6 @@ function getEvents(location, keyword) {
 
             }
         }
-        // $.getJSON(
-        //     oData.toJSON(),
-        //     function(json) {
-        //         alert("here");
-        //     }
-        // );
-        // Note: this relies on the custom toString() methods below
-
     });
 }
 
