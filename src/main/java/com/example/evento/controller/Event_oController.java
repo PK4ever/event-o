@@ -35,13 +35,13 @@ public class Event_oController {
         model.addAttribute("location", location);
         model.addAttribute("keyword", keyWord);
         model.addAttribute("eventList", eventList);
-        return "publicHomePage";
+        return "publicHomePage1";
     }
 
     @GetMapping("/")
     public String home(){
 
-        return "js";
+        return "publicHomePage";
     }
 
     public List<Event_Object> getEventList(String location, String keyWord){
