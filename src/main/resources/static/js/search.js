@@ -66,7 +66,6 @@ function getEvents(location, keyword) {
                 $("#event").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
                     "</li>");
-
             }
         }
     });
