@@ -54,17 +54,18 @@ function getEvents(location, keyword) {
     }
     EVDB.API.call("/events/search", oArgs, function(oData) {
         // alert(oData.events.event.length);
-        $("#title").empty();
+        $("#event").empty();
         for(var x = 0; x < oData.events.event.length; x++){
             if(oData.events.event[x].image) {
                 $("#event").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
+                    "<p>" + oData.events.event[x].city_name +" , "+ [x].region_abbr+"</p>" +
+                    "<p>" + oData.events.event[x].start_time + "</p>" +
                     "<img src='" + oData.events.event[x].image.medium.url + "'></li>");
             }else{
                 $("#event").append("<li><p id='eventTitle'>" + oData.events.event[x].title + "</p>" +
                     "<p id='eventAddress'>" + oData.events.event[x].venue_address + "</p>" +
                     "</li>");
-
             }
         }
     });
