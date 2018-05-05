@@ -59,7 +59,7 @@ function getEvents(location, keyword) {
             if(oData.events.event[x].image) {
                 $("#event").append("<li><p>" + oData.events.event[x].title + "</p>" +
                     "<p>" + oData.events.event[x].venue_address + "</p>" +
-                    "<p>" + oData.events.event[x].city_name +" , "+ [x].region_abbr+"</p>" +
+                    "<p>" + oData.events.event[x].city_name +" , "+ oData.events.event[x].region_abbr+"</p>" +
                     "<p>" + oData.events.event[x].start_time + "</p>" +
                     "<img src='" + oData.events.event[x].image.medium.url + "'></li>");
             }else{
@@ -72,9 +72,38 @@ function getEvents(location, keyword) {
 
 }
 
+var google;
 function initialize() {
     var input = document.getElementById('location');
     new google.maps.places.Autocomplete(input);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+// / LOGIN
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    //get the id token and send to the backend
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID_TOKEN"+ id_token)
+    var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+    xhr.open('POST', 'http://localhost:8000/tokensignin');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        // console.log("HERE");
+        console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('idtoken=' + id_token);
+}
+//LOGOUT
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+}

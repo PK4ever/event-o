@@ -59,6 +59,30 @@
 				<artifactId>eventfulapi</artifactId>
 				<version>1.0</version>
 			</dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.23.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
+		<!--<dependency>-->
+			<!--<groupId>com.google.oauth-client</groupId>-->
+			<!--<artifactId>google-oauth-client</artifactId>-->
+			<!--<version>1.23.0</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.security.oauth</groupId>-->
+			<!--<artifactId>spring-security-oauth2</artifactId>-->
+			<!--<version>2.3.2.RELEASE</version>-->
+		<!--</dependency>-->
 
 	</dependencies>
 
