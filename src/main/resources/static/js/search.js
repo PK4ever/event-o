@@ -91,6 +91,7 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID_TOKEN"+ id_token)
     var xhr = new XMLHttpRequest();
+    //TODO: CHANGE THIS WHEN DEPLOYING TO HEROKU TO THE SERVER URL
     // xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
     xhr.open('POST', 'http://localhost:8000/tokensignin');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
